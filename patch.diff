@@ -1,0 +1,550 @@
+diff --git a/1.css b/1.css
+new file mode 100644
+index 0000000..4b8b690
+--- /dev/null
++++ b/1.css
+@@ -0,0 +1,80 @@
++body
++{
++	//background-color:black;//
++	font-family:Verdana;
++	font-size:20px;
++	color:black;
++}
++
++h1{
++	font-size:48px;
++	color:green;
++}
++/*Nieodwiedzony link*/
++a:link
++{
++	color:green;
++}
++
++/*Odwiedzony link*/
++a:visited
++{
++	color:blue;
++}
++
++/*Po najechaniu kursorem*/
++a:hover
++{
++	color:red;
++}
++
++#container{
++	width:1000px;
++	margin-left:auto;
++	margin-right:auto;
++}
++#logo{
++	background-color:black;
++	text-align:center;
++	padding:15px;
++}
++
++#nav{
++	float:left;
++	background-color:lightgray;
++	width:120px;
++	min-height:645px;
++	padding:10px;
++}
++#content{
++	float:left;
++	padding:20px;
++	width:640px;
++	color:black;
++}
++
++#ad{
++	float:left;
++	width:160px;
++	min-height:620px;
++	padding:10px;
++	background-color:lightgray;
++	
++}
++#footer{
++	clear:both;
++	background-color:black;
++	color:white;
++	text-align:center;
++	padding:10px;
++}
++
++#table{
++	border="1"; 
++	cellpadding="10"; 
++	cellspacing="0";
++}
++
++#table{
++color:black;
++}
+\ No newline at end of file
+diff --git a/1.html b/1.html
+new file mode 100644
+index 0000000..eac717e
+--- /dev/null
++++ b/1.html
+@@ -0,0 +1,72 @@
++<!DOCTTYPE HTML>
++<HTML LANG="pl">
++<HEAD>
++	<meta charset="UTF-8"/>
++	<title>Strona internetowa</title>
++	<meta name="author" content="Grzegorz Hajn"/>
++	<link rel="stylesheet" href="style.css" type="text/css"/>
++
++<script type="text/javascript">
++//funkcja dla odliczania czasu na stronie//
++function odliczanie()
++{	
++	//pobranie aktualnej daty przy użyciu zmiennej var i dodanie obiektu Date//
++	var dzisiaj = new Date();
++	//pobranie dzień,miesiąc,rok i dodanie obiektu oraz wyciągnięcie infromacji/wartości dzień,miesiąc,rok// 
++	var dzien = dzisiaj.getDate();
++	var miesiac = dzisiaj.getMonth()+1;
++	var rok = dzisiaj.getFullYear();
++	//pobranie godziny,minuty,sekundy i użycie tej informacji oraz dodanie 0 przy liczbach mniejszych od 10 po przez sprawadzenie prawdy za pomocą if //
++	var godzina = dzisiaj.getHours();
++	if (godzina < 10) godzina = "0" + godzina;
++	
++	var minuta = dzisiaj.getMinutes();
++	if (minuta < 10) minuta = "0" + minuta;
++	
++	var sekunda = dzisiaj.getSeconds();
++	if (sekunda < 10) sekunda = "0" + sekunda;
++
++	// wziecie i wyszukanie elementu przypisanego dla zegar,w wewnetrznym HTML podmienienie elementu za dzien,miesiac,rok,godzina,minuta,sekunda//
++	document.getElementById("zegar").innerHTML = dzien+"/"+miesiac+"/"+rok+"|"+godzina+":"+minuta+":"+sekunda ;
++	//odświerzanie co sekunde//
++	setTimeout("odliczanie()",1000);
++	
++	}
++</script>	
++</HEAD>
++<BODY onload="odliczanie();">
++	
++	
++	<div id="container">
++		<div id="logo">
++		 <h1>Grzegorz Hajn</h1><br/>
++		</div>
++		
++		 <div id="nav">
++			 <ul>
++				 <li>
++		 <a href="1.html">Java</a></li>
++		 <li> <a href="2.php">PHP</a></li>
++		 <li><a href="dane.php">Dane PHP</a></li>
++		 <li><a href="strona.html">Głowna</a></li>
++		 </ul>
++		 </div>
++		
++		<div id="content" >
++		<!--//dodanie id zegar z wyszukanej lini definiujacej element zegar w skrypcie//-->
++		<div id="zegar"></div>
++
++		</div>
++		
++		<div id="ad">
++		MIEJSCE NA REKLAME 
++		</div>
++		
++		<div id="footer">
++			<h1>STOPKA</h1>
++		</div>
++	</div>
++
++
++</BODY>
++</HTML>
+\ No newline at end of file
+diff --git a/1js.js b/1js.js
+new file mode 100644
+index 0000000..211de79
+--- /dev/null
++++ b/1js.js
+@@ -0,0 +1,27 @@
++<script type="text/javascript">
++//funkcja dla odliczania czasu na stronie//
++function odliczanie()
++{	
++	//pobranie aktualnej daty przy użyciu zmiennej var i dodanie obiektu Date//
++	var dzisiaj = new Date();
++	//pobranie dzień,miesiąc,rok i dodanie obiektu oraz wyciągnięcie infromacji/wartości dzień,miesiąc,rok// 
++	var dzien = dzisiaj.getDate();
++	var miesiac = dzisiaj.getMonth()+1;
++	var rok = dzisiaj.getFullYear();
++	//pobranie godziny,minuty,sekundy i użycie tej informacji oraz dodanie 0 przy liczbach mniejszych od 10 po przez sprawadzenie prawdy za pomocą if //
++	var godzina = dzisiaj.getHours();
++	if (godzina < 10) godzina = "0" + godzina;
++	
++	var minuta = dzisiaj.getMinutes();
++	if (minuta < 10) minuta = "0" + minuta;
++	
++	var sekunda = dzisiaj.getSeconds();
++	if (sekunda < 10) sekunda = "0" + sekunda;
++
++	// wziecie i wyszukanie elementu przypisanego dla zegar,w wewnetrznym HTML podmienienie elementu za dzien,miesiac,rok,godzina,minuta,sekunda//
++	document.getElementById("zegar").innerHTML = dzien+"/"+miesiac+"/"+rok+"|"+godzina+":"+minuta+":"+sekunda ;
++	//odświerzanie co sekunde//
++	setTimeout("odliczanie()",1000);
++	
++	}
++</script>
+\ No newline at end of file
+diff --git a/2.css b/2.css
+new file mode 100644
+index 0000000..9a5c811
+--- /dev/null
++++ b/2.css
+@@ -0,0 +1,69 @@
++﻿body
++{
++	//background-color:black;//
++	font-family:Verdana;
++	font-size:20px;
++	color:white;
++}
++
++h1{
++	font-size:48px;
++	color:green;
++}
++/*Nieodwiedzony link*/
++a:link
++{
++	color:yellow;
++}
++
++/*Odwiedzony link*/
++a:visited
++{
++	color:yellow;
++}
++
++/*Po najechaniu kursorem*/
++a:hover
++{
++	color:red;
++}
++
++#container{
++	width:1000px;
++	margin-left:auto;
++	margin-right:auto;
++}
++#logo{
++	background-color:black;
++	text-align:center;
++	padding:15px;
++}
++
++#nav{
++	float:left;
++	background-color:lightgray;
++	width:120px;
++	min-height:645px;
++	padding:10px;
++}
++#content{
++	float:left;
++	padding:20px;
++	width:640px;
++}
++
++#ad{
++	float:left;
++	width:160px;
++	min-height:620px;
++	padding:10px;
++	background-color:lightgray;
++	
++}
++#footer{
++	clear:both;
++	background-color:black;
++	color:white;
++	text-align:center;
++	padding:10px;
++}
+\ No newline at end of file
+diff --git a/2.php b/2.php
+new file mode 100644
+index 0000000..9600573
+--- /dev/null
++++ b/2.php
+@@ -0,0 +1,57 @@
++<!DOCTTYPE HTML>
++<HTML LANG="pl">
++<HEAD>
++	<meta charset="UTF-8"/>
++	<title>Zamówienie + cd. 3.html</title>
++	<meta name="author" content="Grzegorz Hajn"/>
++	<link rel="stylesheet" href="style.css" type="text/css"/>
++
++
++</HEAD>
++<BODY>
++
++
++	<div id="container">
++		<div id="logo">
++		 <h1>Grzegorz Hajn</h1><br/>
++		</div>
++
++		 <div id="nav">
++			 <ul>
++				 <li>
++		 <a href="1.html">Java</a></li>
++		 <li> <a href="2.php">PHP</a></li>
++		 <li><a href="dane.php">Dane PHP</a></li>
++		 <li><a href="strona.html">Głowna</a></li>
++		 </ul>
++		 </div>
++
++		<div id="content" >
++
++		<?php
++		echo '<h1>Zamówienie książek</h1>
++		<form action="dane.php" method="post">
++		Ilość pisma z przeceną (4.99 PLN/szt):
++		<input type="text" name="pisma"/>
++		<br/><br/>
++		Ilość podręczników do polskiego (24.99 PLN/szt):
++		<input type="text" name="podreczniki"/>
++		<br/><br/>
++		<input type="submit" value="Wyślij zamówienie"/>
++		</form>
++		</div>
++		
++		<div id="ad">
++		MIEJSCE NA REKLAME
++		</div>
++			
++		<div id="footer">
++			<h1>STOPKA</h1>
++		</div>
++
++	</div>';
++	?>
++
++
++</BODY>
++</HTML>
+diff --git a/dane.php b/dane.php
+new file mode 100644
+index 0000000..9ff2598
+--- /dev/null
++++ b/dane.php
+@@ -0,0 +1,66 @@
++<!DOCTTYPE HTML>
++<HTML LANG="pl">
++<HEAD>
++	<meta charset="UTF-8"/>
++	<title>Zamówienie + cd. 3.html</title>
++	<meta name="author" content="Grzegorz Hajn"/>
++	<link rel="stylesheet" href="style.css" type="text/css"/>
++
++
++</HEAD>
++<BODY>
++
++
++	<div id="container">
++		<div id="logo">
++		 <h1>Grzegorz Hajn</h1><br/>
++		</div>
++
++		 <div id="nav">
++			 <ul>
++				 <li>
++		 <a href="1.html">Java</a></li>
++		 <li> <a href="2.php">PHP</a></li>
++		 <li><a href="dane.php">Dane PHP</a></li>
++		 <li><a href="strona.html">Głowna</a></li>
++		 </ul>
++		 </div>
++
++		<div id="content" >
++
++		<?php
++
++			$pisma = $_POST['pisma'];
++			$podreczniki = $_POST['podreczniki'];
++			$suma = 4.99 * $pisma + 24.99 * $podreczniki;
++
++		echo "			<h2>Podsumowanie zamówienia</h2>
++			<table border='1' cellpadding='10' cellspacing='0'>
++			<tr>
++			<td>Pismo (4.99 PLN/szt)</td> <td>".$pisma."</td>
++			</tr>
++			<tr>
++			<td>Podreczniki (24.99 PLN/szt)</td> <td>".$podreczniki."</td>
++			</tr>
++			<tr>
++			<td>SUMA</td> <td>".$suma." PLN</td>
++			</tr>
++			</table>
++			<br><a href='2.php'>Powrót do głównej </a>"
++
++		?>
++
++		</div>
++
++		<div id="ad">
++		MIEJSCE NA REKLAME
++		</div>
++		
++		<div id="footer">
++			<h1>STOPKA</h1>
++		</div>
++	</div>
++
++
++</BODY>
++</HTML>
+diff --git a/strona.html b/strona.html
+new file mode 100644
+index 0000000..b8de374
+--- /dev/null
++++ b/strona.html
+@@ -0,0 +1,46 @@
++<!DOCTTYPE HTML>
++<HTML LANG="pl">
++<HEAD>
++	<meta charset="UTF-8"/>
++	<title>Strona internetowa</title>
++	<meta name="author" content="Grzegorz Hajn"/>
++	<link rel="stylesheet" href="style.css" type="text/css"/>
++
++	<script type="text/javascript" src="1.js"></script>
++
++
++</HEAD>
++<BODY>
++
++
++	<div id="container">
++		<div id="logo">
++		 <h1>Grzegorz Hajn</h1><br/>
++		</div>
++
++		 <div id="nav">
++			 <ul>
++				 <li>
++		 <a href="1.html">Java</a></li>
++		 <li> <a href="2.php">PHP</a></li>
++		 <li><a href="dane.php">Dane PHP</a></li>
++		 <li><a href="strona.html">Głowna</a></li>
++		 </ul>
++		 </div>
++
++		<div id="content" >
++		STRONA GŁÓWNA
++
++		</div>
++
++		<div id="ad">
++		MIEJSCE NA REKLAME
++		</div>
++		<div id="footer">
++			<h1>STOPKKA</h1>
++		</div>
++	</div>
++
++
++</BODY>
++</HTML>
+diff --git a/style.css b/style.css
+new file mode 100644
+index 0000000..548b117
+--- /dev/null
++++ b/style.css
+@@ -0,0 +1,81 @@
++body
++{
++	//background-color:black;//
++	font-family:Verdana;
++	font-size:20px;
++	color:black;
++}
++
++h1{
++	font-size:48px;
++	color:green;
++}
++/*Nieodwiedzony link*/
++a:link
++{
++	color:green;
++}
++
++/*Odwiedzony link*/
++a:visited
++{
++	color:blue;
++}
++
++/*Po najechaniu kursorem*/
++a:hover
++{
++	color:red;
++}
++
++#container{
++	width:1000px;
++	margin-left:auto;
++	margin-right:auto;
++}
++#logo{
++	background-color:black;
++	text-align:center;
++	padding:15px;
++}
++
++#nav{
++	float:left;
++	background-color:lightgray;
++	width:160px;
++	min-height:640px;
++	padding:10px;
++}
++#content{
++	float:left;
++	padding:20px;
++	width:600px;
++	color:black;
++}
++
++#ad{
++	float:left;
++	width:160px;
++	min-height:640px;
++	padding:10px;
++	background-color:lightgray;
++	
++}
++#footer{
++	clear:both;
++	background-color:black;
++	color:white;
++	text-align:center;
++	padding:10px;
++}
++
++#table{
++	border="1"; 
++	cellpadding="10"; 
++	cellspacing="0";
++}
++
++#table{
++color:black;
++}
++ 
